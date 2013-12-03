@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "knob.js",
+  "sourceRoot": "",
+  "sources": [
+    "knob.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;CAAA,CAAA,CAAA,IAAO,QAAP;CAAA"
+}

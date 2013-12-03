@@ -1,0 +1,22 @@
+{
+  "name": "knobjs",
+  "version": "0.0.0",
+  "author": {
+    "name": "Russell McClellan"
+  },
+  "description": "Knob and Slider widgets for music software in the browser",
+  "dependencies" : {},
+  "devDependencies": {
+    "coffee-script" : ">=1.6.1",
+    "uglify-js" : "*",
+    "tserv" : "*"
+  },
+  "directories": {},
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "start": "tserv .",
+    "build": "./build.sh"
+  }
+}
