@@ -9,7 +9,9 @@
   "devDependencies": {
     "coffee-script" : ">=1.6.1",
     "uglify-js" : "*",
-    "tserv" : "*"
+    "tserv" : "*",
+    "jshint" : "*",
+    "docket" : "*"
   },
   "directories": {},
   "engines": {
@@ -17,6 +19,7 @@
   },
   "scripts": {
     "start": "tserv .",
-    "build": "./build.sh"
+    "build": "./build.sh",
+    "doc" : "./doc.sh"
   }
 }
