@@ -7,10 +7,12 @@
   "description": "Knob and Slider widgets for music software in the browser",
   "dependencies" : {},
   "devDependencies": {
-    "coffee-script" : ">=1.6.1",
-    "uglify-js" : "*",
+    "browserify" : "*",
+    "debowerify" : "*",
+    "bower" : "*",
+    "coffeeify" : "*",
+    "uglifyify" : "*",
     "tserv" : "*",
-    "jshint" : "*",
     "docket" : "*"
   },
   "directories": {},
@@ -18,6 +20,7 @@
     "node": ">=0.8.0"
   },
   "scripts": {
+    "install" : "bower install",
     "start": "tserv .",
     "build": "./build.sh",
     "doc" : "./doc.sh"
