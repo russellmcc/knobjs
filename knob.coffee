@@ -3,6 +3,7 @@
 # ## UI widgets for audio software in the browser
 
 _ = require 'underscore'
+require 'pointerevents-polyfill'
 
 svgns = 'http://www.w3.org/2000/svg'
 
@@ -16,8 +17,8 @@ class knob.Knob
     @options ?= {}
     _.defaults @options, @defaults
     @svg = document.createElementNS svgns, 'svg'
-    @svg.height = @options.height
-    @svg.width = @options.width
+    @svg.setAttribute 'height', @options.height
+    @svg.setAttribute 'width', @options.width
 
     node.appendChild @svg
 

@@ -7,6 +7,7 @@
   "description": "Knob and Slider widgets for music software in the browser",
   "dependencies" : {},
   "devDependencies" : {
-      "underscore" : "*"
+      "underscore" : "*",
+      "pointerevents-polyfill" : "*"
   }
 }
