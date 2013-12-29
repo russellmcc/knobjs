@@ -2,7 +2,6 @@
 # # Knob.js
 # ## UI widgets for audio software in the browser
 
-_ = require 'underscore'
 require 'pointerevents-polyfill'
 
 svgns = 'http://www.w3.org/2000/svg'
@@ -15,7 +14,8 @@ class knob.Knob
     width: 100
   constructor: (node, @options) ->
     @options ?= {}
-    _.defaults @options, @defaults
+    @options[default_] ?= value for default_, value of @defaults
+    
     @svg = document.createElementNS svgns, 'svg'
     @svg.setAttribute 'height', @options.height
     @svg.setAttribute 'width', @options.width
