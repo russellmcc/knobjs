@@ -20,6 +20,10 @@ class knob.Knob
     @svg.setAttribute 'height', @options.height
     @svg.setAttribute 'width', @options.width
 
+    # we want to capture all touch events
+    @svg.style.touchEvents = 'none'
+    @svg.setAttribute 'touch-event', 'none' # needed for polyfill
+
     node.appendChild @svg
 
 module.exports = knob

@@ -10,19 +10,22 @@
     "browserify" : "*",
     "debowerify" : "*",
     "bower" : "*",
+    "beefy" : "*",
     "coffeeify" : "*",
     "uglifyify" : "*",
-    "tserv" : "*",
     "docket" : "*"
+  },
+  "private" : true,
+  "config" : {
+      "port" : 8080
   },
   "directories": {},
   "engines": {
     "node": ">=0.8.0"
   },
   "scripts": {
-    "install" : "bower install",
-    "start": "tserv .",
-    "build": "./build.sh",
+    "start": "./server.sh",
+    "prepublish": "./build.sh",
     "doc" : "./doc.sh"
   }
 }
