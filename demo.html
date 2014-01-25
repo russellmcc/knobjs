@@ -8,7 +8,7 @@
       .jsknob-arcbg {fill: rgba(0,0,0,0); stroke-width:0.1; stroke: #555;}
       .jsknob-arc {fill:#e5e;}
 
-      #myknob {
+      #myknob, #myknob2 {
         display: inline-block;
         height: 100px;
         width: 100px;
@@ -17,12 +17,16 @@
   </head>
   <body>
     <x-jsknob-knob id="myknob"></x-jsknob-knob>
+    <x-jsknob-knob id="myknob2" angle-range="5" max="500"></x-jsknob-knob>
     <script>
       window.onload = function(){
         var a = document.getElementById('myknob');
+        var b = document.getElementById('myknob2');
         a.addEventListener('change', function(){
-          if(+a.value === 1000)
-            console.log('hit max!')
+          b.value = a.value
+        });
+        b.addEventListener('change', function(){
+          a.value = b.value
         });
       };
     </script>

@@ -45,6 +45,23 @@ class knob.Knob extends HTMLInputElement
     @svg.setAttribute 'preserveAspectRatio', 'none'
     @svg.setAttribute 'class', 'jsknob-knob'
 
+    defs = document.createElementNS svgns, 'defs'
+    @svg.appendChild defs
+
+    clipID =  "#{Math.random()}".slice 2
+
+    clip = document.createElementNS svgns, 'mask'
+    clip.setAttribute 'id', "clip#{clipID}"
+    clipRect = document.createElementNS svgns, 'rect'
+    clipRect.setAttribute 'height', '100%'
+    clipRect.setAttribute 'width', '100%'
+    clipRect.setAttribute 'fill', 'white'
+    clip.appendChild clipRect
+    @clipPath = document.createElementNS svgns, 'path'
+    @clipPath.setAttribute 'fill', 'black'
+    clip.appendChild @clipPath
+    defs.appendChild clip
+
     bg = document.createElementNS svgns, 'rect'
     bg.setAttribute 'width', '2'
     bg.setAttribute 'height', '2'
@@ -53,6 +70,7 @@ class knob.Knob extends HTMLInputElement
 
     @arcBg = document.createElementNS svgns, 'path'
     @arcBg.setAttribute 'class', 'jsknob-arcbg'
+    @arcBg.setAttribute 'mask', "url(#clip#{clipID})"
     @svg.appendChild @arcBg
 
     @arc = document.createElementNS svgns, 'path'
@@ -71,14 +89,14 @@ class knob.Knob extends HTMLInputElement
     for prop in ['value', 'min', 'max']
       @["#{prop}Changed"] = @recalcValue
 
-    @min = 0
-    @max = 1000
-    @value = 500
-    @['start-angle'] = 5 / 4 * Math.PI
-    @['angle-range'] = 3 / 2 * Math.PI
-    @['inner-radius'] = .6
-    @['outer-radius'] = .9
-    @throw = 300
+    @min ?= 0
+    @max ?= 1000
+    @value ?= 500
+    @['start-angle'] ?= 5 / 4 * Math.PI
+    @['angle-range'] ?= 3 / 2 * Math.PI
+    @['inner-radius'] ?= .6
+    @['outer-radius'] ?= .9
+    @throw ?= 300
     @constructed = true
     @recalcArc()
 
@@ -97,10 +115,11 @@ class knob.Knob extends HTMLInputElement
     # this counts as a 'default' event since we're defining
     # an ad-hoc element type
     return if e.defaultPrevented
+    return if e.button? and e.button isnt 0
     @pointerState[@getIDForEvent e] = {
       listener: new Listener
         proxy: @
-        events:['pointermove', 'pointerup']
+        events:['pointermove', 'pointerup', 'pointercancel']
         node: document
       clientX: e.clientX
       clientY: e.clientY
@@ -126,6 +145,7 @@ class knob.Knob extends HTMLInputElement
   recalcArc: ->
     return unless @constructed
     @arcBg.setAttribute 'd', @makeArcPath 1
+    @clipPath.setAttribute 'd', @makeArcPath 1
     @recalcValue()
 
   recalcValue: ->
@@ -141,6 +161,10 @@ class knob.Knob extends HTMLInputElement
   pointerup: (e) ->
     @pointerState[@getIDForEvent e].listener.remove()
     delete @pointerState[@getIDForEvent e]
+  pointercancel: (e) ->
+    state = @pointerState[@getIDForEvent e]
+    @value = state.startVal
+    @pointerup(e)
 
 document.register 'x-jsknob-knob',
   prototype: knob.Knob::,
