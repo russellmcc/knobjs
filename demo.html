@@ -3,11 +3,28 @@
   <head>
     <title>knobjs demo page</title>
     <script type="text/javascript" src="knob.min.js"></script>
+    <style>
+      .jsknob-bg {fill: rgba(0,0,0,0);}
+      .jsknob-arcbg {fill: rgba(0,0,0,0); stroke-width:0.1; stroke: #555;}
+      .jsknob-arc {fill:#e5e;}
+
+      #myknob {
+        display: inline-block;
+        height: 100px;
+        width: 100px;
+      }
+    </style>
   </head>
   <body>
+    <x-jsknob-knob id="myknob"></x-jsknob-knob>
     <script>
-      var k = new knob.Knob(document.body);
-      k.value = 7;
+      window.onload = function(){
+        var a = document.getElementById('myknob');
+        a.addEventListener('change', function(){
+          if(+a.value === 1000)
+            console.log('hit max!')
+        });
+      };
     </script>
   </body>
 </html>
