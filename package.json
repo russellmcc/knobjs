@@ -12,8 +12,7 @@
     "bower" : "*",
     "beefy" : "*",
     "coffeeify" : "*",
-    "uglifyify" : "*",
-    "docket" : "*"
+    "uglifyify" : "*"
   },
   "private" : true,
   "config" : {
@@ -25,7 +24,6 @@
   },
   "scripts": {
     "start": "./server.sh",
-    "prepublish": "./build.sh",
-    "doc" : "./doc.sh"
+    "prepublish": "./build.sh"
   }
 }

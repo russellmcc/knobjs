@@ -1,7 +1,3 @@
-# ~readme.out~
-# # Knob.js
-# ## UI widgets for audio software in the browser
-
 require 'polymer-platform'
 
 svgns = 'http://www.w3.org/2000/svg'
