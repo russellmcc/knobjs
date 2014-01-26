@@ -82,6 +82,7 @@ class knob.Knob extends HTMLInputElement
     new Listener {proxy: @, events:['pointerdown'], node: @}
 
     @appendChild @svg
+    @setAttribute 'touch-action', 'none'
 
     addAttributesAsProperties @, ['value', 'min', 'max', 'start-angle', 'angle-range', 'inner-radius', 'outer-radius', 'throw']
     for prop in ['start-angle', 'angle-range', 'inner-radius', 'outer-radius']
@@ -167,7 +168,7 @@ class knob.Knob extends HTMLInputElement
     @pointerup(e)
 
 document.register 'x-jsknob-knob',
-  prototype: knob.Knob::,
-  extends: 'input'
+  prototype: knob.Knob::
+#  extends: 'input'
 
 module.exports = knob

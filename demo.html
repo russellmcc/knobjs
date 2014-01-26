@@ -8,7 +8,7 @@
       .jsknob-arcbg {fill: rgba(0,0,0,0); stroke-width:0.1; stroke: #555;}
       .jsknob-arc {fill:#e5e;}
 
-      #myknob, #myknob2 {
+      x-jsknob-knob {
         display: inline-block;
         height: 100px;
         width: 100px;
@@ -16,19 +16,29 @@
     </style>
   </head>
   <body>
-    <x-jsknob-knob id="myknob"></x-jsknob-knob>
-    <x-jsknob-knob id="myknob2" angle-range="5" max="500"></x-jsknob-knob>
     <script>
-      window.onload = function(){
-        var a = document.getElementById('myknob');
-        var b = document.getElementById('myknob2');
-        a.addEventListener('change', function(){
-          b.value = a.value
-        });
-        b.addEventListener('change', function(){
-          a.value = b.value
-        });
-      };
+      var numKnobs = 3;
+      window.addEventListener('WebComponentsReady', function(){
+        var knobs = [];
+        var i;
+        var changing = false;
+        for(i = 0; i < numKnobs; i++) {
+          var knob = document.createElement('x-jsknob-knob')
+          knobs.push(knob);
+          document.body.appendChild(knob);
+        }
+        for(i = 0; i < numKnobs; i++) { (function(j){
+          knobs[i].addEventListener('change', function(){
+            var i;
+            if(changing) return;
+            changing = true;
+            for(i = 0; i < numKnobs; i++) {
+              knobs[i].value = knobs[j].value;
+            }
+            changing = false;
+          });
+        })(i);}
+      });
     </script>
   </body>
 </html>
