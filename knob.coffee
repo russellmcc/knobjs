@@ -39,7 +39,7 @@ class knob.Knob extends HTMLInputElement
     @svg.setAttribute 'width', '100%'
     @svg.setAttribute 'viewBox', '0 0 2 2'
     @svg.setAttribute 'preserveAspectRatio', 'none'
-    @svg.setAttribute 'class', 'jsknob-knob'
+    @svg.setAttribute 'class', 'knobjs-knob'
 
     defs = document.createElementNS svgns, 'defs'
     @svg.appendChild defs
@@ -61,16 +61,16 @@ class knob.Knob extends HTMLInputElement
     bg = document.createElementNS svgns, 'rect'
     bg.setAttribute 'width', '2'
     bg.setAttribute 'height', '2'
-    bg.setAttribute 'class', 'jsknob-bg'
+    bg.setAttribute 'class', 'knobjs-bg'
     @svg.appendChild bg
 
     @arcBg = document.createElementNS svgns, 'path'
-    @arcBg.setAttribute 'class', 'jsknob-arcbg'
+    @arcBg.setAttribute 'class', 'knobjs-arcbg'
     @arcBg.setAttribute 'mask', "url(#clip#{clipID})"
     @svg.appendChild @arcBg
 
     @arc = document.createElementNS svgns, 'path'
-    @arc.setAttribute 'class', 'jsknob-arc'
+    @arc.setAttribute 'class', 'knobjs-arc'
     @svg.appendChild @arc
 
     @pointerState = {}
@@ -87,8 +87,8 @@ class knob.Knob extends HTMLInputElement
       @["#{prop}Changed"] = @recalcValue
 
     @min ?= 0
-    @max ?= 1000
-    @value ?= 500
+    @max ?= 100
+    @value ?= 50
     @['start-angle'] ?= 5 / 4 * Math.PI
     @['angle-range'] ?= 3 / 2 * Math.PI
     @['inner-radius'] ?= .6
@@ -163,7 +163,7 @@ class knob.Knob extends HTMLInputElement
     @value = state.startVal
     @pointerup(e)
 
-document.register 'x-jsknob-knob',
+document.register 'x-knobjs-knob',
   prototype: knob.Knob::
 #  extends: 'input'
 

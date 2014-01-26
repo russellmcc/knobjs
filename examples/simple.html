@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>knobjs demo page</title>
+    <script type="text/javascript" src="knob.min.js"></script>
+    <link rel="stylesheet" href="knobjs.css"/>
+    <style>
+      html {user-select: none; -webkit-user-select:none;}
+    </style>
+  </head>
+  <body>
+    <x-knobjs-knob id="knob1"></x-knobjs-knob>
+    <x-knobjs-knob id="knob2"></x-knobjs-knob>
+    <p id="text"></p>
+    <script>
+      window.onload = function(){
+        var textElem = document.getElementById('text');
+        var knob1 = document.getElementById('knob1');
+        var knob2 = document.getElementById('knob2');
+        var redoText = function(){
+          textElem.textContent = "Knob 1's value:" + Math.round(knob1.value) + ", Knob 2's value:" + Math.round(knob2.value);
+        }
+        knob1.onchange = redoText;
+        knob2.onchange = redoText;
+        redoText();
+      };
+    </script>
+  </body>
+</html>
