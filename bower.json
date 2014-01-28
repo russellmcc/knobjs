@@ -4,9 +4,9 @@
   "author": {
       "name" : "Russell McClellan"
   },
-  "description": "Knob and Slider widgets for music software in the browser",
+  "description": "Knob widget for music software in the browser",
   "dependencies" : {},
   "devDependencies" : {
-      "polymer-platform" : "*"
+      "polymer-platform" : "^0.1.1"
   }
 }

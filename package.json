@@ -4,15 +4,19 @@
   "author": {
     "name": "Russell McClellan"
   },
-  "description": "Knob and Slider widgets for music software in the browser",
+  "repository" : {
+    "type" : "git",
+    "url" : "http://github.com/russellmcc/jsknob.git"
+  },
+  "description": "Knob widget for music software in the browser",
   "dependencies" : {},
   "devDependencies": {
-    "browserify" : "*",
-    "debowerify" : "*",
-    "bower" : "*",
-    "beefy" : "*",
-    "coffeeify" : "*",
-    "uglifyify" : "*"
+    "browserify" : "^3.17.0",
+    "debowerify" : "^0.5.1",
+    "bower" : "^1.2.8",
+    "beefy" : "^0.7.1",
+    "coffeeify" : "^0.5.2",
+    "uglifyify" : "^1.0.1"
   },
   "private" : true,
   "config" : {

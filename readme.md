@@ -1,5 +1,5 @@
 # `knob.js`
-No-jQuery UI widgets for audio software in the browser
+No-jQuery UI widgets for music software in the browser
 
 ## How to get it
 
