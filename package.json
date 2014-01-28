@@ -1,12 +1,12 @@
 {
   "name": "knobjs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": {
     "name": "Russell McClellan"
   },
   "repository" : {
     "type" : "git",
-    "url" : "http://github.com/russellmcc/jsknob.git"
+    "url" : "http://github.com/russellmcc/knobjs.git"
   },
   "description": "Knob widget for music software in the browser",
   "dependencies" : {},
@@ -18,7 +18,6 @@
     "coffeeify" : "^0.5.2",
     "uglifyify" : "^1.0.1"
   },
-  "private" : true,
   "config" : {
       "port" : 8080
   },
