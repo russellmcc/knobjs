@@ -13,7 +13,7 @@ For your convenience:
 
     bower install knobjs
 
-`hotlink`:
+or, just hotlink the file:
 
     <script type="text/javascript" src="http://www.russellmcc.com/knobjs/knob.min.js"></script>
 
