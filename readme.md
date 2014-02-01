@@ -1,5 +1,5 @@
 # `knob.js`
-No-jQuery UI widgets for music software in the browser
+UI widgets for music software in the browser.
 
 ## How to get it
 
@@ -14,6 +14,10 @@ For your convenience:
     bower install knobjs
 
 You can also download `knob.min.js` directly from this repository.
+
+## Live Demo
+
+[on github pages](http://www.russellmcc.com/knobjs/)
 
 ## Basic Usage
 
