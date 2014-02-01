@@ -113,6 +113,7 @@ class knob.Knob extends HTMLInputElement
     # an ad-hoc element type
     return if e.defaultPrevented
     return if e.button? and e.button isnt 0
+    e.preventDefault()
     @pointerState[@getIDForEvent e] = {
       listener: new Listener
         proxy: @
@@ -151,11 +152,15 @@ class knob.Knob extends HTMLInputElement
     @arc.setAttribute 'd', @makeArcPath (@value - @min) / (@max - @min)
 
   pointermove: (e) ->
+    # prevent any default for pointer move while we have capture.
+    e.preventDefault()
     state = @pointerState[@getIDForEvent e]
     d = (e.clientX - state.clientX) + (state.clientY - e.clientY)
     d *= (@max - @min) / @throw
     @value = Math.max(@min, Math.min(@max, +state.startVal + d))
   pointerup: (e) ->
+    # prevent any default for pointer up while we have capture.
+    e.preventDefault()
     @pointerState[@getIDForEvent e].listener.remove()
     delete @pointerState[@getIDForEvent e]
   pointercancel: (e) ->
