@@ -13,7 +13,9 @@ For your convenience:
 
     bower install knobjs
 
-You can also download `knob.min.js` directly from this repository.
+`hotlink`:
+
+    <script type="text/javascript" src="http://www.russellmcc.com/knobjs/knob.min.js"></script>
 
 ## Live Demo
 
