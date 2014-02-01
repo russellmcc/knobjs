@@ -1,5 +1,5 @@
 .knobjs-bg {fill: rgba(0,0,0,0);}
-.knobjs-arcbg {fill: rgba(0,0,0,0); stroke-width:0.1; stroke: #555; mask:none;}
+.knobjs-arcbg {fill: rgba(0,0,0,0); stroke-width:0.1; stroke: #555;}
 .knobjs-arc {fill:#e5e;}
 
 x-knobjs-knob {
