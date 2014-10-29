@@ -7,6 +7,7 @@
   "description": "Knob widget for music software in the browser",
   "dependencies" : {},
   "devDependencies" : {
-      "polymer-platform" : "^0.1.1"
+      "webcomponentsjs" : "^0.4",
+      "pointerevents-polyfill" : "^0.2"
   }
 }
